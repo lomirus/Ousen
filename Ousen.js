@@ -19,6 +19,22 @@ function addCell(question, answer, i) {
     list.appendChild(questionBlock);
     list.appendChild(answerBlock);
     list.appendChild(remove);
+    questionBlock.addEventListener('click', function () {
+        let newText = prompt("请输入您要将其更改为的内容：")
+        if (newText != null) {
+            questionBlock.innerText = newText
+            data[i][0] = newText
+            document.querySelector('#save').style.display = "block"
+        }
+    })
+    answerBlock.addEventListener('click', function () {
+        let newText = prompt("请输入您要将其更改为的内容：")
+        if (newText != null) {
+            answerBlock.innerText = newText
+            data[i][1] = newText
+            document.querySelector('#save').style.display = "block"
+        }
+    })
     remove.addEventListener('click', function () {
         list.removeChild(questionBlock)
         list.removeChild(answerBlock)
@@ -29,10 +45,9 @@ function addCell(question, answer, i) {
     document.querySelector('#main').style.height = 150 + 52 * data.length + 'px';
 }
 function removeEmptyElement(arr) {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++)
         if (!arr[i])
-            arr.splice(i--, 1);
-    }
+            arr.splice(i--, 1)
 }
 document.querySelector('#new').addEventListener('click', function () {
     let question = prompt('请输入问题：')
@@ -40,13 +55,14 @@ document.querySelector('#new').addEventListener('click', function () {
     let answer = prompt('请输入答案：')
     if (answer == null) return
 
-    addCell(question, answer, data.length)
     data.push([question, answer]);
+    addCell(question, answer, data.length)
     localStorage.data = JSON.stringify(data);
 })
 document.querySelector('#save').addEventListener('click', function () {
     removeEmptyElement(data)
     localStorage.data = JSON.stringify(data);
+    document.querySelector('#main').style.height = 150 + 52 * data.length + 'px';
     document.querySelector('#save').style.display = 'none'
 })
 document.querySelector('#run').addEventListener('click', function () {
