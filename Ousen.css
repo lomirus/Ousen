@@ -1,0 +1,85 @@
+body{
+    background-color: #eee;
+}
+div#main{
+    border-radius: 20px;
+
+    position: absolute;
+    top:200px;
+    margin-bottom:200px;
+    left:15%;
+    right:15%;
+
+    background-color: #fff;
+}
+div.button{
+    width:60px;
+    height: 60px;
+    border-radius: 30px;
+
+    position: absolute;
+    top:20px;
+
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    user-select:none;
+
+    background-color: #FFD700;
+    color:#fff;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+div.button:hover{
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.2);
+}
+div#new{
+    left:30px;
+
+}
+div#save{
+    left:100px;
+    display:none
+}
+div#run{
+    right:30px;
+}
+div#list{
+    left:50px;
+    right:50px;
+    top:108px;
+    bottom:30px;
+
+    
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px;
+    grid-template-rows: repeat(auto-fill, 50px);
+    grid-row-gap: 2px;
+
+    /*background-color: #888;*/
+}
+div.cell{
+    background-color: #FFD700;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    color:#233
+}
+div.cell:hover{
+    background-color: #EEC600;
+}
+div.question{
+    border-radius: 30px 0 0 30px;
+}
+div.answer{
+    border-radius: 0 30px 30px 0;
+}
+div.remove{
+    border-radius: 30px;
+    cursor: pointer;
+    user-select:none;
+
+    color:#fff;
+}
